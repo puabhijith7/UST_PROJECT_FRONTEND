@@ -14,5 +14,10 @@ export class DemoServiceService {
   
       return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/${date}/${source}/${dest}`);
     }
+    searchbus(date: string, source: string, dest: string) {
+    
+  
+      return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/bus/${date}/${source}/${dest}`);
+    }
   }
 
