@@ -34,20 +34,48 @@
   Date : <input type="text" [(ngModel)]="textbox1" placeholder="Textbox 1">
   Starting Point : <input type="text" [(ngModel)]="textbox2" placeholder="Textbox 2">
   Destination Point : <input type="text" [(ngModel)]="textbox3" placeholder="Textbox 3">
-  <button (click)="search()" (click)="searchbus()">Search</button>
-  <table class="awesome-table" >
+  <button (click)="search()" (click)="searchbus()">Search</button><br><br><br>
+  <div>
+    <table class="awesome-table">
+      <thead>
+        <tr>
+          <th>Schedule ID</th>
+          <th>Date</th>
+          <th>Departure Time</th>
+          <th>Arrival Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let schedule of schedules">
+          <td>{{ schedule.scheduleId }}</td>
+          <td>{{ schedule.date }}</td>
+          <td>{{ schedule.departureTime }}</td>
+          <td>{{ schedule.arrivalTime }}</td>
+        </tr>
+      </tbody>
+    </table><br><br><br>
     
-    <tbody>
-      <tr *ngFor="let schedule of schedules">
-        <td>{{ schedule.scheduleId }}</td>
-        <td>{{ schedule.date }}</td>
-        <td>{{ schedule.departureTime }}</td>
-        <td>{{ schedule.arrivalTime }}</td>
-        <td>{{ schedule.routeId }}</td>
-        <td>{{ schedule.busId }}</td>
-      </tr>
-    </tbody>
-  </table>
-  <div id="response-container1"></div>
+    <table class="awesome-table">
+      <thead>
+        <tr>
+          <th>Bus ID</th>
+          <th>Bus No</th>
+          <th>Bus Name</th>
+          <th>Bus Type</th>
+          <th>Total Seats</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let b of busDto">
+          <td>{{ b.busId }}</td>
+          <td>{{ b.busNo }}</td>
+          <td>{{ b.busName }}</td>
+          <td>{{ b.busType }}</td>
+          <td>{{ b.totalSeats }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
 </body>
 </html>

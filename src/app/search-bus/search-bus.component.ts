@@ -13,6 +13,7 @@ export class SearchBusComponent {
   textbox2: string='';
   textbox3: string='';
   schedules: Schedule[]=[];
+  busDto: BusDto[]=[];
   constructor(private demosearch:DemoServiceService){}
   search() {
     
@@ -33,30 +34,18 @@ export class SearchBusComponent {
 
       searchbus() {
     
-        this.demosearch.searchbus(this.textbox1, this.textbox2, this.textbox3)
-          .subscribe(
-            (response: any) => {
-              // Handle the response from the API
-              if (Array.isArray(response)) {
-                const BusResponse: BusDto[] = response as BusDto[];
-                const responseContainer = document.getElementById('response-container1');
-                if (responseContainer !== null) {
-                  let formattedResponse = '';
-                  response.forEach((busDto) => {
-                    formattedResponse += `<div>Bus ID: ${busDto.busId}, Bus Name: ${busDto.busName}, Bus Number: ${busDto.busNo}, Total Seats: ${busDto.totalSeats}</div>`;
-                  });
-                  responseContainer.innerHTML = formattedResponse;
-                }
-              } else {
-                console.log("Invalid response format");
-              }
-            },
-            (error) => {
-              // Handle any errors
-              console.log("hai");
-              console.error(error);
+        this.demosearch.searchbus(this.textbox1, this.textbox2, this.textbox3).subscribe(
+          (response: any) => {
+            if (Array.isArray(response)) {
+              this.busDto = response as BusDto[];
+            } else {
+              console.log("Invalid response format");
             }
-          );
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
     
           }
     }
