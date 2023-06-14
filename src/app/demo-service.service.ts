@@ -1,23 +1,31 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DemoServiceService {
-  
 
-  constructor(private http:HttpClient) {}
 
-    search(date: string, source: string, dest: string) {
-    
-  
-      return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/${date}/${source}/${dest}`);
-    }
-    searchbus(date: string, source: string, dest: string) {
-    
-  
-      return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/bus/${date}/${source}/${dest}`);
-    }
+  constructor(private http: HttpClient) { }
+
+  getDropdownValues(): Observable<string[]> {
+    return this.http.get<string[]>('http://localhost:8081/api/v1/buses/routeDetails/all');
   }
+
+  search(date: string, source: string, dest: string) {
+    return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/${date}/${source}/${dest}`);
+  }
+  searchbus(date: string, source: string, dest: string) {
+
+
+    return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/bus/${date}/${source}/${dest}`);
+  }
+  getfare(date: string, source: string, dest: string) {
+
+
+    return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/fare/${date}/${source}/${dest}`);
+  }
+}
 

@@ -31,31 +31,52 @@
     </style>
   </head>
 <body>
-  Date : <input type="text" [(ngModel)]="textbox1" placeholder="Textbox 1">
-  Starting Point : <input type="text" [(ngModel)]="textbox2" placeholder="Textbox 2">
-  Destination Point : <input type="text" [(ngModel)]="textbox3" placeholder="Textbox 3">
-  <button (click)="search()" (click)="searchbus()">Search</button><br><br><br>
+  
+  <label for="starting-point">Starting Point:</label>
+<select id="starting-point" [(ngModel)]="textbox2">
+  <option *ngFor="let value of dropdownValues" [value]="value">{{ value }}</option>
+</select><br><br>
+
+<label for="destination-point">Destination Point:</label>
+<select id="destination-point" [(ngModel)]="textbox3">
+  <option *ngFor="let value of dropdownValues" [value]="value">{{ value }}</option>
+</select><br><br>
+  Date : <input type="date" [(ngModel)]="textbox1" placeholder="yyyy-mm-dd"><br><br>
+  <button (click)="search()" (click)="searchbus()" (click)="getfare()">Search</button><br><br><br>
   <div>
     <table class="awesome-table">
       <thead>
         <tr>
-          <th>Schedule ID</th>
+         
           <th>Date</th>
           <th>Departure Time</th>
           <th>Arrival Time</th>
+         
+          <th>Bus No</th>
+          <th>Bus Name</th>
+          <th>Bus Type</th>
+          <th>Total Seats</th>
+          <th>Fare</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let schedule of schedules">
-          <td>{{ schedule.scheduleId }}</td>
+        <tr *ngFor="let schedule of schedules; let i = index">
+         
           <td>{{ schedule.date }}</td>
           <td>{{ schedule.departureTime }}</td>
           <td>{{ schedule.arrivalTime }}</td>
+        
+          <td>{{ busDto[i].busNo }}</td>
+          <td>{{ busDto[i].busName }}</td>
+          <td>{{ busDto[i].busType }}</td>
+          <td>{{ busDto[i].totalSeats }}</td>
+          <td>{{fare[i]}}</td>
+          <td><button type="submit">BOOK</button></td>
         </tr>
       </tbody>
     </table><br><br><br>
     
-    <table class="awesome-table">
+    <!-- <table class="awesome-table">
       <thead>
         <tr>
           <th>Bus ID</th>
@@ -74,7 +95,7 @@
           <td>{{ b.totalSeats }}</td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
   </div>
   
 </body>

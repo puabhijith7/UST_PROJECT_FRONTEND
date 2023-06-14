@@ -20,6 +20,6 @@ import { SearchBusComponent } from './search-bus/search-bus.component';
     HttpClientModule
   ],
   providers: [DemoServiceService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,SearchBusComponent]
 })
 export class AppModule { }
