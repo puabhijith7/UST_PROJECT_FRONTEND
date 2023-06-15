@@ -13,7 +13,9 @@ export  class SearchBusComponent  {
   constructor(private demosearch:DemoServiceService){
     this.getDropdownValues();
   }
-  
+ 
+ 
+  errorMessage: string='';
   textbox1: string='';
   textbox2: string='';
   textbox3: string='';
@@ -33,11 +35,12 @@ export  class SearchBusComponent  {
       }
     );}
   search(): void {
-    this.schedules=[];
-    
+    this.schedules=[]; 
+    this.errorMessage=''  
     this.demosearch.search(this.textbox1, this.textbox2, this.textbox3).subscribe(
       (response: any) => {
         if (Array.isArray(response)) {
+       
           this.schedules = response as Schedule[];
         } else {
           console.log("Invalid response format");
@@ -45,6 +48,7 @@ export  class SearchBusComponent  {
       },
       (error) => {
         console.error(error);
+        this.errorMessage = "BUS NOT FOUND";
       }
     );
 
@@ -52,6 +56,7 @@ export  class SearchBusComponent  {
 
       searchbus(): void {
         this.busDto=[]
+        this.errorMessage=''  
         this.demosearch.searchbus(this.textbox1, this.textbox2, this.textbox3).subscribe(
           (response: any) => {
             if (Array.isArray(response)) {
@@ -62,6 +67,7 @@ export  class SearchBusComponent  {
           },
           (error) => {
             console.error(error);
+            this.errorMessage = "BUS NOT FOUND";
           }
         );
     
@@ -69,7 +75,7 @@ export  class SearchBusComponent  {
           getfare(): void {
             
             this.fare=[];
-            
+            this.errorMessage=''  
             this.demosearch.getfare(this.textbox1, this.textbox2, this.textbox3).subscribe(
               (response: any) => {
                 if (Array.isArray(response)) {
@@ -80,6 +86,7 @@ export  class SearchBusComponent  {
               },
               (error) => {
                 console.error(error);
+                this.errorMessage = "BUS NOT FOUND";
               }
             );
         

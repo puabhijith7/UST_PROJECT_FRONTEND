@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DemoServiceService } from './demo-service.service';
 import { SearchBusComponent } from './search-bus/search-bus.component';
+import { SeatsComponent } from './seats/seats.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchBusComponent
+    SearchBusComponent,
+    SeatsComponent
   ],
   imports: [
     BrowserModule,
@@ -20,6 +22,6 @@ import { SearchBusComponent } from './search-bus/search-bus.component';
     HttpClientModule
   ],
   providers: [DemoServiceService],
-  bootstrap: [AppComponent,SearchBusComponent]
+  bootstrap: [AppComponent,SearchBusComponent,SeatsComponent]
 })
 export class AppModule { }

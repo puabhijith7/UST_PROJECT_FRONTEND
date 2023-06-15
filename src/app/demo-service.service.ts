@@ -13,18 +13,16 @@ export class DemoServiceService {
   getDropdownValues(): Observable<string[]> {
     return this.http.get<string[]>('http://localhost:8081/api/v1/buses/routeDetails/all');
   }
-
-  search(date: string, source: string, dest: string) {
+  
+  search(date: string, source: string, dest: string): Observable<any> {
     return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/${date}/${source}/${dest}`);
   }
-  searchbus(date: string, source: string, dest: string) {
-
-
+  
+  searchbus(date: string, source: string, dest: string): Observable<any> {
     return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/bus/${date}/${source}/${dest}`);
   }
-  getfare(date: string, source: string, dest: string) {
-
-
+  
+  getfare(date: string, source: string, dest: string): Observable<any> {
     return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/fare/${date}/${source}/${dest}`);
   }
 }

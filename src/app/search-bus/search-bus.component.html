@@ -1,102 +1,146 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      .awesome-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-}
-
-.awesome-table th,
-.awesome-table td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-.awesome-table th {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.awesome-table tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.awesome-table tbody tr:hover {
-  background-color: #ddd;
-}
-
-    </style>
-  </head>
-<body>
-  
-  <label for="starting-point">Starting Point:</label>
-<select id="starting-point" [(ngModel)]="textbox2">
-  <option *ngFor="let value of dropdownValues" [value]="value">{{ value }}</option>
-</select><br><br>
-
-<label for="destination-point">Destination Point:</label>
-<select id="destination-point" [(ngModel)]="textbox3">
-  <option *ngFor="let value of dropdownValues" [value]="value">{{ value }}</option>
-</select><br><br>
-  Date : <input type="date" [(ngModel)]="textbox1" placeholder="yyyy-mm-dd"><br><br>
-  <button (click)="search()" (click)="searchbus()" (click)="getfare()">Search</button><br><br><br>
-  <div>
-    <table class="awesome-table">
-      <thead>
-        <tr>
-         
-          <th>Date</th>
-          <th>Departure Time</th>
-          <th>Arrival Time</th>
-         
-          <th>Bus No</th>
-          <th>Bus Name</th>
-          <th>Bus Type</th>
-          <th>Total Seats</th>
-          <th>Fare</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let schedule of schedules; let i = index">
-         
-          <td>{{ schedule.date }}</td>
-          <td>{{ schedule.departureTime }}</td>
-          <td>{{ schedule.arrivalTime }}</td>
-        
-          <td>{{ busDto[i].busNo }}</td>
-          <td>{{ busDto[i].busName }}</td>
-          <td>{{ busDto[i].busType }}</td>
-          <td>{{ busDto[i].totalSeats }}</td>
-          <td>{{fare[i]}}</td>
-          <td><button type="submit">BOOK</button></td>
-        </tr>
-      </tbody>
-    </table><br><br><br>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
     
-    <!-- <table class="awesome-table">
-      <thead>
-        <tr>
-          <th>Bus ID</th>
-          <th>Bus No</th>
-          <th>Bus Name</th>
-          <th>Bus Type</th>
-          <th>Total Seats</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let b of busDto">
-          <td>{{ b.busId }}</td>
-          <td>{{ b.busNo }}</td>
-          <td>{{ b.busName }}</td>
-          <td>{{ b.busType }}</td>
-          <td>{{ b.totalSeats }}</td>
-        </tr>
-      </tbody>
-    </table> -->
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    select,
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    
+    button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    /* .table-container {
+      margin-top: 30px;
+      
+    } */
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+    }
+    
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    
+    tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    
+    tbody tr:hover {
+      background-color: #ddd;
+    }
+    
+    .error-message {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+  
+</head>
+<body>
+  <div class="container">
+    <div class="form-group">
+      <label for="starting-point">Starting Point:</label>
+      <select id="starting-point" [(ngModel)]="textbox2">
+        <option *ngFor="let value of dropdownValues" [value]="value">{{ value }}</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="destination-point">Destination Point:</label>
+      <select id="destination-point" [(ngModel)]="textbox3">
+        <option *ngFor="let value of dropdownValues" [value]="value">{{ value }}</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="date">Date:</label>
+      <input type="date" id="date" [(ngModel)]="textbox1" placeholder="yyyy-mm-dd">
+    </div>
+    
+    <button (click)="search()" (click)="searchbus()"(click)="getfare()" >Search</button>
+    
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
   </div>
+  <div *ngIf="schedules.length > 0">
+      <table>
+        <thead>
+          <tr>
+            <th >Date</th>
+            <th >Departure Time</th>
+            <th >Arrival Time</th>
+            <th >Bus No</th>
+            <th >Bus Name</th>
+            <th >Bus Type</th>
+            <th >Total Seats</th>
+            <th >Fare</th>
+            <!-- <th >Action</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let schedule of schedules; let i = index">
+            <td>{{ schedule.date }}</td>
+            <td>{{ schedule.departureTime }}</td>
+            <td>{{ schedule.arrivalTime }}</td>
+            <td>{{ busDto[i].busNo }}</td>
+            <td>{{ busDto[i].busName }}</td>
+            <td>{{ busDto[i].busType }}</td>
+            <td>{{ busDto[i].totalSeats }}</td>
+            <td>{{ fare[i] }}</td>
+            <td><button type="submit">VIEW SEATS</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   
 </body>
 </html>
