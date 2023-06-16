@@ -38,13 +38,15 @@ export class SeatsComponent {
 
       this.seats[index] = 'temporarily-booked';
       this.seatNo = this.seatNo + 1;
+      this.bookSeats(index);
       if (this.seatNo > 5) {
         alert("MAXIMUM NUMBER OF SEATS CAN BE BOOKED AT A TIME EXCEEDED!!!!")
         this.seatNo = this.seatNo - 1;
         this.seats[index] = 'available';
+        this.unbookSeats(index);
         console.log(this.bookedSeats)
       }
-      this.bookSeats(index);
+      
 
     } else {
 
