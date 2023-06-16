@@ -7,9 +7,8 @@ import { Component } from '@angular/core';
 })
 export class SeatsComponent {
   seats: any[];
-  seatNo:number=0
-
-
+  seatNo: number = 0
+  bookedSeats: Array<number>=[];
 
   constructor() {
 
@@ -38,23 +37,34 @@ export class SeatsComponent {
     if (this.seats[index] === 'available') {
 
       this.seats[index] = 'temporarily-booked';
-      this.seatNo=this.seatNo+1;
+      this.seatNo = this.seatNo + 1;
+      if (this.seatNo > 5) {
+        alert("MAXIMUM NUMBER OF SEATS CAN BE BOOKED AT A TIME EXCEEDED!!!!")
+        this.seatNo = this.seatNo - 1;
+        this.seats[index] = 'available';
+        console.log(this.bookedSeats)
+      }
+      this.bookSeats(index);
 
     } else {
 
       this.seats[index] = 'available';
-      this.seatNo=this.seatNo-1;
+      this.seatNo = this.seatNo - 1;
+      this.unbookSeats(index);
+
 
     }
 
   }
 
- 
-
-  isBooked(seat: any) {
-
-    return seat === 'temporarily-booked';
-
+  public bookSeats(index: number)
+  {
+      this.bookedSeats.push(index);
   }
 
+  public unbookSeats(ind:number)
+  {
+    let index = this.bookedSeats.indexOf(ind);
+    this.bookedSeats.splice(index,1)
+  }
 }

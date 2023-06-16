@@ -142,7 +142,7 @@
 
           <div *ngFor="let seat of seats; let i = index" style="margin-left: 27px;">
 
-            <div class="seat" [ngClass]="{'temporarily-booked': isBooked(seat),'booked': seat === 'booked'}" (click)="toggleSeatStatus(i)"></div>
+            <div class="seat" [ngClass]="{'temporarily-booked': seat ==='temporarily-booked','booked': seat === 'booked'}" (click)="toggleSeatStatus(i)"></div>
 
           </div>
 
@@ -154,7 +154,7 @@
       </div>
 
     </div>
-    <button style="margin-left: 50px;" class="btn btn-primary" routerLink="/bookingdetails">Add {{seatNo}} Passenger Details</button>
+    <button style="margin-left: 50px;" class="btn btn-primary" >Add {{seatNo}}  Passenger Details</button>
 
   </div>
 

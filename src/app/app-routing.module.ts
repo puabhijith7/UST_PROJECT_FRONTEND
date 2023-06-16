@@ -4,7 +4,7 @@ import { SearchBusComponent } from './search-bus/search-bus.component';
 import { SeatsComponent } from './seats/seats.component';
 
 const routes: Routes = [
-//   {path:'',component:SearchBusComponent},
+ //  {path:'',component:SearchBusComponent},
   {path:'',component:SeatsComponent}
 ];
 
