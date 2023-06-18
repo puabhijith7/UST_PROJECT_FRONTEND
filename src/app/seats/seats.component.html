@@ -137,6 +137,7 @@
         <h1>Seat Availability</h1>
 
         <p>Select a seat to book for your journey.</p>
+        
 
         <div class="seats-container">
 
@@ -144,7 +145,7 @@
 
             <div class="seat" [ngClass]="{'temporarily-booked': seat ==='temporarily-booked','booked': seat === 'booked'}" (click)="toggleSeatStatus(i)"></div>
 
-          </div>
+          </div> 
 
         </div>
         <img style="margin-left: 158px;"  src="https://www.shutterstock.com/image-vector/smiling-happy-public-transport-driver-600w-1283302042.jpg" width="50px" height="50px">
@@ -158,7 +159,7 @@
 
   </div>
 
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 

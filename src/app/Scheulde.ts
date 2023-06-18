@@ -1,5 +1,5 @@
 export class Schedule {
-    scheduleId: number | undefined;
+    scheduleId: number =0;
     date: string | undefined;
     departureTime: string | undefined;
     arrivalTime: string | undefined;

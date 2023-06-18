@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Seat } from './Seat';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DemoServiceService {
+  s:Seat[]=[]
+  
 
 
   constructor(private http: HttpClient) { }
@@ -25,5 +28,8 @@ export class DemoServiceService {
   getfare(date: string, source: string, dest: string): Observable<any> {
     return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/fare/${date}/${source}/${dest}`);
   }
+  getseats(s: number): Observable<any> {
+    return this.http.get(`http://localhost:8082/api/v1/schedules/seat/${s}`);
 }
 
+}
