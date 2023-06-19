@@ -140,6 +140,7 @@ export  class SearchBusComponent  {
               getseats(s:number): void {
             
                 this.seat=[];
+                this.demosearch.scheduleId=s
                 this.errorMessage=''  
                 this.demosearch.getseats(s).subscribe(
                   (response: any) => {

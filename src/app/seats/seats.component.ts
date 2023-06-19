@@ -38,7 +38,7 @@ export class SeatsComponent {
   // });
   this.seats = Array(40).fill('available');
   // this.seat=this.seat;
-  console.log(this.demosearch.seat)
+  // console.log(this.demosearch.seat)
   this.seat=this.demosearch.seat
   // this.n=1;
   // console.log(this.fare)
@@ -104,5 +104,6 @@ export class SeatsComponent {
   set(){
     this.bookedSeats.sort((a, b) => a - b);
     this.demosearch.numofseats=this.bookedSeats;
+    console.log(this.demosearch.numofseats)
   }
 }

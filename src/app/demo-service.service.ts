@@ -14,6 +14,7 @@ export class DemoServiceService {
   fhault: string='';
   thault: string='';
   numofseats: Array<number>=[];
+  scheduleId: number=0;
   
 
 

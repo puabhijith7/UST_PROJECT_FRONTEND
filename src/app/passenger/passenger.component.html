@@ -216,49 +216,89 @@
 </head>
 
 <body class="dark-theme">
-    <div class="container">
-      <div class="card">
-        <div class="card-body">
-          <h1>Passenger Details</h1>
-         
-          <div class="seats-container">
-            <div class="form-group" *ngFor="let passenger of passengers; let i = index">
-              <p style="font-weight: bold;color: #5b4882;">Passenger {{i+1}}--Seat {{numofseats[i]}}</p>
-              <div class="row">
-                <div class="col-md-4">
-                  <label for="name{{i}}">Name:</label>
-                  <input type="text" class="form-control" id="name{{i}}" required>
-                </div>
-                <div class="col-md-4">
-                  <label for="age{{i}}">Age:</label>
-                  <input type="number" class="form-control" id="age{{i}}" required>
-                </div>
-                <div class="col-md-4">
-                  <label for="gender{{i}}">Gender:</label>
-                  <select class="form-control" id="gender{{i}}" required>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div class="col-md-4">
-                  <label for="mobile{{i}}">Mobile:</label>
-                  <input type="tel" class="form-control" id="mobile{{i}}" pattern="[0-9]{10}" required>
-                  <small class="text-muted">Please enter a 10-digit mobile number.</small>
-                </div>
-                <div class="col-md-4">
-                  <label for="email{{i}}">Email:</label>
-                  <input type="email" class="form-control" id="email{{i}}" required>
-                  <small class="text-muted">Please enter a valid email address.</small>
-                </div>
+
+  <div class="container">
+
+    <div class="card">
+
+      <div class="card-body">
+
+        <h1>Passenger Details</h1>
+
+        <div class="seats-container">
+
+          <div class="form-group" *ngFor="let passenger of passengers; let i = index">
+
+            <p style="font-weight: bold;color: #5b4882;">Passenger {{i+1}}--Seat {{numofseats[i]}}</p>
+
+            <div class="row">
+
+              <div class="col-md-4">
+
+                Name:
+
+                <input type="text" class="form-control" [(ngModel)]="name[i]" required>
+
               </div>
+
+              <div class="col-md-4">
+
+                Age:
+
+                <input type="number" class="form-control" [(ngModel)]="age[i]" required>
+
+              </div>
+
+              <div class="col-md-4">
+
+                Gender:
+
+                <select class="form-control" [(ngModel)]="gender[i]" required>
+
+                  <option value="male">Male</option>
+
+                  <option value="female">Female</option>
+
+                  <option value="other">Other</option>
+
+                </select>
+
+              </div>
+
+              <div class="col-md-4">
+
+                Mobile:
+
+                <input type="text" class="form-control" [(ngModel)]="mobileNo[i]" required>
+
+              </div>
+
+              <div class="col-md-4">
+
+                Email:
+
+                <input type="email" class="form-control" [(ngModel)]="email[i]" required>
+
+              </div>
+
             </div>
-            <button class="btn btn-primary" type="submit"(click)="submitForm()">Submit</button>
+            
+
           </div>
-         </div>
+          <button class="btn btn-primary" type="submit"(click)="submitForm()">Submit</button>
+
+          
+
         </div>
+
       </div>
-   
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </body>
-  </html>
+
+    </div>
+
+  </div>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

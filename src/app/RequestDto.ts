@@ -1,9 +1,9 @@
 class PassengerDto {
-    public name: string;
-    public email: string;
-    public mobileNo: string;
-    public age: number;
-    public gender: string;
+     name: string;
+     email: string;
+     mobileNo: string;
+     age: number;
+     gender: string;
   
     constructor(
       name: string,
@@ -21,15 +21,15 @@ class PassengerDto {
   }
   
   class RequestDto {
-    public source: string;
-    public destination: string;
-    public scheduleId: number;
-    public userId: number;
-    public tickets: number;
-    public fare: number;
-    public date: string;
-    public seatNoList: number[];
-    public passengerDtoList: PassengerDto[];
+     source: string;
+     destination: string;
+     scheduleId: number;
+     userId: number;
+     tickets: number;
+     fare: number;
+     date: string;
+     seatNoList: number[];
+     passengerDtoList: PassengerDto[];
   
     constructor(
       source: string,
