@@ -1,4 +1,6 @@
 import { AfterContentInit, Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DemoServiceService } from '../demo-service.service';
 import { Seat } from '../Seat';
 
 @Component({
@@ -7,45 +9,47 @@ import { Seat } from '../Seat';
   styleUrls: ['./seats.component.css']
 })
 export class SeatsComponent {
-   @Input() seat:Seat[]=[]
-   @Input() fhault:String=''
-   @Input() thault:String=''
-   @Input() fare:number=0
-   @Input() date:String=''
-    seats: any=[];
-    n:number=0;
-  
-  seatNo: number = 0
-  bookedSeats: Array<number>=[];
+  seat: Seat[] =this.demosearch.seat;
+  fhault: string =this.demosearch.fhault;
+  thault: string =this.demosearch.thault;
+  fare: number = this.demosearch.fare;
+  date: string = this.demosearch.date;
 
-  constructor() {
-  
+   seats: any=[];
+   n:number=0;
+   seatNo: number = 0
+   bookedSeats: Array<number>=[];
+ 
+  constructor(private demosearch:DemoServiceService) {
 
     this.seats = Array(40).fill('available');
 
-    // this.seats[1] = 'booked';
-
-    // this.seats[5] = 'booked';
-
-    // this.seats[15] = 'booked';
-
-    // this.seats[17] = 'booked';
-
   }
+
+  //  seat: Seat[]
   
- process(seat: Seat[]):void{
+ process():void{
+  // this.route.queryParams.subscribe((params) => {
+  //   this.seat = params['seat'];
+  //   this.fhault = params['fhault'];
+  //   this.thault = params['thault'];
+  //   this.fare = params['fare'];
+  //   this.date = params['date'];
+  // });
   this.seats = Array(40).fill('available');
-  this.seat=seat;
-  this.n=1;
-  console.log(this.fare)
-  console.log(this.date)
+  // this.seat=this.seat;
+  console.log(this.demosearch.seat)
+  this.seat=this.demosearch.seat
+  // this.n=1;
+  // console.log(this.fare)
+  // console.log(this.date)
   this.seat.forEach((s,i) => {
- 
+
     if(s.fHault===this.fhault && s.tHault===this.thault && s.status === 1){
      // console.log("hai")
       this.seats[s.seatNo-1]= 'booked'
     }; 
-    this.n=s.seatNo
+    // this.n=s.seatNo
   
   });
  }
@@ -62,6 +66,7 @@ export class SeatsComponent {
     }
 
     if (this.seats[index] === 'available') {
+      console.log(this.seat);
 
       this.seats[index] = 'temporarily-booked';
       this.seatNo = this.seatNo + 1;
@@ -95,5 +100,9 @@ export class SeatsComponent {
   {
     let index = this.bookedSeats.indexOf(ind);
     this.bookedSeats.splice(index,1)
+  }
+  set(){
+    this.bookedSeats.sort((a, b) => a - b);
+    this.demosearch.numofseats=this.bookedSeats;
   }
 }

@@ -7,7 +7,13 @@ import { Seat } from './Seat';
   providedIn: 'root'
 })
 export class DemoServiceService {
-  s:Seat[]=[]
+  s:Seat[]=[];
+  fare: number=0;
+  date: string='';
+  seat: Seat[]=[];
+  fhault: string='';
+  thault: string='';
+  numofseats: Array<number>=[];
   
 
 

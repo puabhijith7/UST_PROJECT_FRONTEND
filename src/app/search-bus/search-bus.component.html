@@ -137,14 +137,15 @@
             <td>{{ busDto[i].busType }}</td>
             <td>{{ busDto[i].totalSeats }}</td>
             <td>{{ fare[i] }}</td>
-            <td><button type="submit" (click)="toggleDivVisibility('1')" (click)="getseats(schedule.scheduleId)"(click)="setfare(fare[i])">VIEW SEATS</button></td>
+            <!-- (click)="toggleDivVisibility('1')" -->
+            <td><button type="submit" (click)="getseats(schedule.scheduleId)"(click)="setfare(fare[i])"(click)="set()" routerLink="/seats">VIEW SEATS</button></td>
           </tr>
         </tbody>
       </table>
       </div>
-      <div id="1" style="display: none;">
+      <!-- <div  *ngIf="schedules.length > 0" id="1" style="display: none;">
         <app-seats [seat]="seat" [fhault]="textbox2" [thault]="textbox3"[fare]="fareOfSchedule"[date]="textbox1"></app-seats>
-      </div>
+      </div> -->
       
 
   

@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { BusDto } from '../BusDto';
 import { DemoServiceService } from '../demo-service.service';
 import { Schedule } from '../Scheulde';
@@ -13,23 +14,44 @@ import { SeatsComponent } from '../seats/seats.component';
 
 export  class SearchBusComponent  {
   
-  constructor(private demosearch:DemoServiceService){
+  constructor(private demosearch:DemoServiceService,private router:Router){
     this.getDropdownValues();
   }
 
- 
-  toggleDivVisibility(divId: string) {
-    const div  = document.getElementById(divId);
-    if (div!=null) {
-      div.style.display='block'
-    }
-    
-  }
-  @ViewChild(SeatsComponent) appSeatsComponent!: SeatsComponent;
+  // navigateToAppSeats(): void {
+  //   const route = '/app-seats';
 
-  callProcessSeats(): void {
-    this.appSeatsComponent.process(this.seat);
-  }
+  //   // Create an object with the values to be passed as query parameters
+  //   const queryParams: any = {
+  //     seat: this.seat,
+  //     fhault: this.textbox2,
+  //     thault: this.textbox3,
+  //     fare: this.fareOfSchedule,
+  //     date: this.textbox1
+  //   };
+
+  //   // Create the NavigationExtras object with the queryParams property
+  //   const navigationExtras: NavigationExtras = {
+  //     queryParams
+  //   };
+
+  //   // Navigate to the AppSeatsComponent with the specified route and navigation extras
+  //   this.router.navigate([route], navigationExtras);
+  // }
+
+ 
+  // toggleDivVisibility(divId: string) {
+  //   const div  = document.getElementById(divId);
+  //   if (div!=null) {
+  //     div.style.display='block'
+  //   }
+    
+  // }
+  // @ViewChild(SeatsComponent) appSeatsComponent!: SeatsComponent;
+
+  // callProcessSeats(): void {
+  //   this.appSeatsComponent.process(this.seat);
+  // }
   
   seat:Seat[]=[]
   errorMessage: string='';
@@ -124,7 +146,8 @@ export  class SearchBusComponent  {
                     if (Array.isArray(response)) {
                       this.seat = response as  Seat[];
                       console.log(this.seat)
-                      this.callProcessSeats()
+                      this.demosearch.seat=this.seat;
+                      // this.callProcessSeats()
                     } else {
                       console.log("Invalid response format");
                     }
@@ -136,5 +159,12 @@ export  class SearchBusComponent  {
                 );
             
                   }
+        set(){
+          this.demosearch.fare=this.fareOfSchedule;
+          this.demosearch.date=this.textbox1;          
+          this.demosearch.fhault=this.textbox2;
+          this.demosearch.thault=this.textbox3;
+         
+        }
  
     }

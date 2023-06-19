@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { DemoServiceService } from './demo-service.service';
 import { SearchBusComponent } from './search-bus/search-bus.component';
 import { SeatsComponent } from './seats/seats.component';
+import { PassengerComponent } from './passenger/passenger.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchBusComponent,
-    SeatsComponent
+    SeatsComponent,
+    PassengerComponent
   ],
   imports: [
     BrowserModule,

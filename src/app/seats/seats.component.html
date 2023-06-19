@@ -29,7 +29,9 @@
 
       background-color: #ffffff;
 
-      height: 100%;
+      height: 100vh;
+      display:flex;
+      align-items: center;
 
     }
 
@@ -53,11 +55,11 @@
 
       background-color: rgb(60, 202, 98);
 
-      max-width: 400px; /* Adjust the width as desired */
+      max-width: 500px; /* Adjust the width as desired */
 
       margin: 0 auto; /* Center the card horizontally */
 
-      margin-top: 50px; /* Add some top margin */
+      /* margin-top: 50px; Add some top margin */
 
       border-radius: 10px; /* Rounded corners */
 
@@ -78,7 +80,7 @@
 
       display: grid;
 
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(10, 1fr);
 
       grid-gap: 10px;
 
@@ -127,6 +129,7 @@
 </head>
 
 <body class="dark-theme" style="margin-top: 0px;">
+  <button (click)="process()">LOAD</button>
 
   <div >
 
@@ -137,25 +140,25 @@
         <h1>Seat Availability</h1>
 
         <p>Select a seat to book for your journey.</p>
-        
+        <!-- style="margin-left: 27px;" -->
 
         <div class="seats-container">
 
-          <div *ngFor="let seat of seats; let i = index" style="margin-left: 27px;">
+          <div *ngFor="let seat of seats; let i = index" >{{i+1}}
 
             <div class="seat" [ngClass]="{'temporarily-booked': seat ==='temporarily-booked','booked': seat === 'booked'}" (click)="toggleSeatStatus(i)"></div>
 
           </div> 
 
         </div>
-        <img style="margin-left: 158px;"  src="https://www.shutterstock.com/image-vector/smiling-happy-public-transport-driver-600w-1283302042.jpg" width="50px" height="50px">
+        <!-- <img style="margin-left: 158px;"  src="https://www.shutterstock.com/image-vector/smiling-happy-public-transport-driver-600w-1283302042.jpg" width="50px" height="50px"> -->
 
         
 
       </div>
 
     </div>
-    <button style="margin-left: 50px;" class="btn btn-primary" >Add {{seatNo}}  Passenger Details</button>
+    <button style="margin-left: 50px;" class="btn btn-primary" (click)="set()" routerLink="/passenger">Add {{seatNo}}  Passenger Details</button>
 
   </div>
 
