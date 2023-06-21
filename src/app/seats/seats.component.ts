@@ -20,9 +20,17 @@ export class SeatsComponent {
    seatNo: number = 0
    bookedSeats: Array<number>=[];
  
-  constructor(private demosearch:DemoServiceService) {
+   constructor(private demosearch:DemoServiceService) {
+
+
+
 
     this.seats = Array(40).fill('available');
+
+    setInterval(() => this.process(), 100);
+
+
+
 
   }
 
@@ -36,7 +44,7 @@ export class SeatsComponent {
   //   this.fare = params['fare'];
   //   this.date = params['date'];
   // });
-  this.seats = Array(40).fill('available');
+ // this.seats = Array(40).fill('available');
   // this.seat=this.seat;
   // console.log(this.demosearch.seat)
   this.seat=this.demosearch.seat

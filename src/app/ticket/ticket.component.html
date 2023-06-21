@@ -1,0 +1,123 @@
+
+<html>
+<head>
+  <title>Journey Bus Ticket</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .ticket {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .ticket-info {
+      margin-bottom: 20px;
+    }
+
+    .ticket-info label {
+      display: inline-block;
+      width: 100px;
+      font-weight: bold;
+    }
+
+    .ticket-info span {
+      font-weight: normal;
+    }
+
+    .passenger-info {
+      margin-bottom: 20px;
+    }
+
+    .passenger-info label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .passenger-info input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .seat-info {
+      margin-bottom: 20px;
+    }
+
+    .seat-info label {
+      display: inline-block;
+      width: 100px;
+      font-weight: bold;
+    }
+
+    .fare-info {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .fare-info span {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    @media (max-width: 600px) {
+      .ticket {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Journey Bus Ticket</h1>
+  <div class="ticket">
+    <div class="ticket-info">
+      <label>Source:</label>
+      <span>New York</span>
+    </div>
+    <div class="ticket-info">
+      <label>Destination:</label>
+      <span>Los Angeles</span>
+    </div>
+    <div class="ticket-info">
+      <label>Bus Type:</label>
+      <span>AC Deluxe</span>
+    </div>
+    <div class="ticket-info">
+      <label>Bus Name:</label>
+      <span>ABC Travels</span>
+    </div>
+    <div class="ticket-info">
+      <label>Date:</label>
+      <span>June 30, 2023</span>
+    </div>
+    <div class="passenger-info">
+      <label>Passenger Details:</label>
+      <input type="text" placeholder="Enter passenger name">
+    </div>
+    <div class="seat-info">
+      <label>Seat No:</label>
+      <span>12A</span>
+    </div>
+    <div class="fare-info">
+      <label>Fare:</label>
+      <span>$50</span>
+    </div>
+  </div>
+</body>
+</html>

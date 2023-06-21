@@ -9,13 +9,15 @@ import { DemoServiceService } from './demo-service.service';
 import { SearchBusComponent } from './search-bus/search-bus.component';
 import { SeatsComponent } from './seats/seats.component';
 import { PassengerComponent } from './passenger/passenger.component';
+import { TicketComponent } from './ticket/ticket.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchBusComponent,
     SeatsComponent,
-    PassengerComponent
+    PassengerComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,
