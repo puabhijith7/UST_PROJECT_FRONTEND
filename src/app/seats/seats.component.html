@@ -6,121 +6,9 @@
 
   <title>Seat Availability</title>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
 
   <style>
-
-    body {
-
-      background-color: #ffffff;
-
-      color: #fff;
-
-      height: 100vh;
-
-      margin: 0;
-
-    }
-
-
-
-
-    .dark-theme .container {
-
-      background-color: #ffffff;
-
-      height: 100vh;
-      display:flex;
-      align-items: center;
-
-    }
-
-
-
-
-    .dark-theme h1,
-
-    .dark-theme p {
-
-      color: #fff;
-
-      text-align: center; /* Center align the text */
-
-    }
-
-
-
-
-    .dark-theme .card {
-
-      background-color: rgb(60, 202, 98);
-
-      max-width: 500px; /* Adjust the width as desired */
-
-      margin: 0 auto; /* Center the card horizontally */
-
-      /* margin-top: 50px; Add some top margin */
-
-      border-radius: 10px; /* Rounded corners */
-
-    }
-
-
-
-
-    .dark-theme .card-body {
-
-      padding: 20px; /* Add padding to the card body */
-
-    }
-
- 
-
-    .dark-theme .seats-container {
-
-      display: grid;
-
-      grid-template-columns: repeat(10, 1fr);
-
-      grid-gap: 10px;
-
-    }
-
-
-
-
-    .dark-theme .seat {
-
-      width: 30px; /* Reduce the width of the seat */
-
-      height: 30px; /* Reduce the height of the seat */
-
-      margin: 3px; /* Reduce the margin of the seat */
-
-      background-color: #076cf0;
-
-      border-radius: 5px;
-
-      cursor: pointer; /* Add cursor pointer on hover */
-
-    }
-
-
-
-
-    .dark-theme .temporarily-booked {
-
-      background-color: #1d035f;
-      cursor: pointer;
-    }
-
-    .dark-theme .booked {
-
-      background-color: #cc0606;
-
-      cursor: not-allowed;
-
-    }
 
    
 
@@ -158,11 +46,12 @@
       </div>
 
     </div>
+    <div *ngIf="bookedSeats.length> 0">
     <button style="margin-left: 50px;" class="btn btn-primary" (click)="set()" routerLink="/passenger">Add {{seatNo}}  Passenger Details</button>
-
+    </div>
   </div>
 
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
 
 </body>
 

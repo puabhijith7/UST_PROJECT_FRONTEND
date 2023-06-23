@@ -99,6 +99,10 @@ body {
     border-color: #ffffff;
   
   }
+
+  .dark-theme .error-message{
+      color: red;
+  }
   
   
   

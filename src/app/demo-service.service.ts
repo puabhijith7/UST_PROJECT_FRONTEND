@@ -23,25 +23,25 @@ export class DemoServiceService {
   constructor(private http: HttpClient) { }
 
   getDropdownValues(): Observable<string[]> {
-    return this.http.get<string[]>('http://localhost:8081/api/v1/buses/routeDetails/all');
+    return this.http.get<string[]>('http://localhost:9090/api/v1/buses/routeDetails/all');
   }
   
   search(date: string, source: string, dest: string): Observable<any> {
-    return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/${date}/${source}/${dest}`);
+    return this.http.get(`http://localhost:9090/api/v1/schedules/schedule/${date}/${source}/${dest}`);
   }
   
   searchbus(date: string, source: string, dest: string): Observable<any> {
-    return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/bus/${date}/${source}/${dest}`);
+    return this.http.get(`http://localhost:9090/api/v1/schedules/schedule/bus/${date}/${source}/${dest}`);
   }
   
   getfare(date: string, source: string, dest: string): Observable<any> {
-    return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/fare/${date}/${source}/${dest}`);
+    return this.http.get(`http://localhost:9090/api/v1/schedules/schedule/fare/${date}/${source}/${dest}`);
   }
   getseats(s: number): Observable<any> {
-    return this.http.get(`http://localhost:8082/api/v1/schedules/seat/${s}`);
+    return this.http.get(`http://localhost:9090/api/v1/schedules/seat/${s}`);
 }
 book(requestDto: RequestDto): Observable<any> {
-    return this.http.post('http://localhost:8082/api/v1/bookings/booking',requestDto)
+    return this.http.post('http://localhost:9090/api/v1/bookings/booking',requestDto)
 }
 
 }
