@@ -1,0 +1,16 @@
+.carousel-control-prev,
+.carousel-control-next {
+    margin-top: 250px;
+  width: 0.1px;
+  height: 0.1px;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 1px 1px;
+  
+
+}

@@ -96,7 +96,6 @@ export  class SearchBusComponent  {
         this.errorMessage = "BUS NOT FOUND";
       }
     );
-
       }
 
       searchbus(): void {

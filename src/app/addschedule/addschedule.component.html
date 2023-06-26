@@ -1,0 +1,117 @@
+<!-- <div class="container">
+    <h1>Add Bus</h1>
+      <input type="text" placeholder="Bus Name"  required [(ngModel)]="busName">
+      <input type="text" placeholder="Total Seats"  required [(ngModel)]="totalSeats">
+      <input type="text" placeholder="Bus Number"  required [(ngModel)]="busNumber">
+        <input type="text" placeholder="Reg Number"  required [(ngModel)]="regNo">
+        <input type="text" placeholder="Engine Number" required [(ngModel)]="engineNumber">
+      <select name="busType" id="busType"  required [(ngModel)]="busType">
+        <option value="" disabled selected>Select Bus Type</option>
+        <option value="AC">AC</option>
+        <option value="Non-AC">Non-AC</option>
+      </select>
+      <button type="submit" (click)="addbus()">Add Bus</button>
+  </div> -->
+
+
+  <app-adminnav></app-adminnav>
+
+  <div class="row"style="margin-top:200px;">
+
+    <div class="col-md-6 offset-md-3">
+
+      <div class="container">
+
+        <div class="form-container">
+
+          
+
+            <div class="form-row">
+
+              <div class="form-group col-md-6">
+
+                <label for="bus-id">ScheduleId</label>
+
+                <input type="text" [(ngModel)]="scheduleId" class="form-control" id="bus-id">
+
+              </div>
+
+              <div class="form-group col-md-6">
+
+                <label for="bus-name">Date</label>
+
+                <input type="text"  [(ngModel)]="date"  placeholder="yyyy-mm-dd"class="form-control" id="bus-name">
+
+              </div>
+
+            </div>
+
+            <div class="form-row">
+
+              <div class="form-group col-md-6">
+
+                <label for="bus-seats">DepartureTime</label>
+
+                <input type="text" [(ngModel)]="departureTime" placeholder="hh:mm:ss" class="form-control" id="bus-seats">
+
+              </div>
+
+              <div class="form-group col-md-6">
+
+                <label for="bus-type">ArrivalTime</label>
+
+                <input type="text" [(ngModel)]="arrivalTime" placeholder="hh:mm:ss" class="form-control" id="bus-type"> 
+
+              </div>
+
+            </div>
+
+            <div class="form-row">
+
+              <div class="form-group col-md-6">
+
+                <label for="bus-number">RouteId</label>
+
+                <input type="text" [(ngModel)]="routeId" class="form-control" id="bus-number">
+
+              </div>
+
+              <div class="form-group col-md-6">
+
+                <label for="reg-number">BusId</label>
+
+                <input type="text" [(ngModel)]="busId" class="form-control" id="reg-number">
+
+              </div>
+
+            </div>
+
+           
+
+
+
+
+            <div class="text-center">
+
+              <button type="submit" class="btn btn-primary" (click)="addschedule()">ADD</button>
+
+            </div>
+
+          
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js"></script> -->
+
+    <!-- <app-footer></app-footer> -->
+  
+  

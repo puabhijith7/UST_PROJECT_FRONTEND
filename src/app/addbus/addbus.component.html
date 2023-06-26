@@ -1,0 +1,134 @@
+<!-- <div class="container">
+    <h1>Add Bus</h1>
+      <input type="text" placeholder="Bus Name"  required [(ngModel)]="busName">
+      <input type="text" placeholder="Total Seats"  required [(ngModel)]="totalSeats">
+      <input type="text" placeholder="Bus Number"  required [(ngModel)]="busNumber">
+        <input type="text" placeholder="Reg Number"  required [(ngModel)]="regNo">
+        <input type="text" placeholder="Engine Number" required [(ngModel)]="engineNumber">
+      <select name="busType" id="busType"  required [(ngModel)]="busType">
+        <option value="" disabled selected>Select Bus Type</option>
+        <option value="AC">AC</option>
+        <option value="Non-AC">Non-AC</option>
+      </select>
+      <button type="submit" (click)="addbus()">Add Bus</button>
+  </div> -->
+
+
+
+<app-adminnav></app-adminnav>
+  
+   
+
+  <div class="row">
+
+    <div class="col-md-6 offset-md-3">
+
+      <div class="container">
+
+        <div class="form-container">
+
+          
+
+            <div class="form-row">
+
+              <div class="form-group col-md-6">
+
+                <label for="bus-id">Bus ID</label>
+
+                <input type="text" [(ngModel)]="busId" class="form-control" id="bus-id">
+
+              </div>
+
+              <div class="form-group col-md-6">
+
+                <label for="bus-name">Bus Name</label>
+
+                <input type="text"  [(ngModel)]="busName" class="form-control" id="bus-name">
+
+              </div>
+
+            </div>
+
+            <div class="form-row">
+
+              <div class="form-group col-md-6">
+
+                <label for="bus-seats">Total seats</label>
+
+                <input type="text" [(ngModel)]="totalSeats" class="form-control" id="bus-seats">
+
+              </div>
+
+              <div class="form-group col-md-6">
+
+                <label for="bus-type">Type</label>
+
+                <input type="text" [(ngModel)]="busType" class="form-control" id="bus-type"> 
+
+              </div>
+
+            </div>
+
+            <div class="form-row">
+
+              <div class="form-group col-md-6">
+
+                <label for="bus-number">Bus No</label>
+
+                <input type="text" [(ngModel)]="busNo" class="form-control" id="bus-number">
+
+              </div>
+
+              <div class="form-group col-md-6">
+
+                <label for="reg-number">Reg No</label>
+
+                <input type="text" [(ngModel)]="regNo" class="form-control" id="reg-number">
+
+              </div>
+
+            </div>
+
+            <div class="form-row">
+
+              <div class="form-group col-md-6 offset-md-3">
+
+                <label for="engine-number">Engine No</label>
+
+                <input type="text" [(ngModel)]="engineNo" class="form-control" id="engine-number">
+
+              </div>
+
+            </div>
+
+            <div style="font-weight: bold; color: rgb(151, 20, 20); margin-left: 140px;" class="error-message">
+              {{ errorMessage }}
+            </div>
+
+
+            <div class="text-center">
+
+              <button type="submit" class="btn btn-primary" (click)="addbus()">ADD</button>
+
+            </div>
+
+          
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js"></script>
+
+    <!-- <app-footer></app-footer> -->
+  
+  

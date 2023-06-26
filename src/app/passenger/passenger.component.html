@@ -1,117 +1,211 @@
 
+<app-nav2></app-nav2>
+
+<!DOCTYPE html>
+
 <html>
+
+
+
 
 <head>
 
   <title>Passenger Details</title>
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+
+
+   
+
+    .card {
+
+      background-color: #fff;
+
+      max-width: 600px;
+
+      margin: auto; /* Center the card horizontally */
+
+      padding: 40px;
+
+      border-radius: 10px;
+
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    }
+
+   
+
+    h1 {
+
+      color: #000000;
+
+      font-size: 24px;
+
+      font-weight: bold;
+
+      margin-bottom: 30px;
+
+      text-align: center;
+
+    }
+
+   
+
+    .form-group label {
+
+      font-weight: bold;
+
+      color: #000000;
+
+    }
+
+   
+
+    .form-control {
+
+      border-color: #5b4882;
+
+    }
+
+   
+
+    .btn-primary {
+
+      background-color: #0b6b10;
+
+      border: none;
+
+      padding: 10px 30px;
+
+      font-size: 16px;
+
+      font-weight: bold;
+
+      transition: background-color 0.3s ease;
+
+    }
+
+   
+
+    .btn-primary:hover {
+
+      background-color: #077721;
+
+    }
+    .container{
+      margin-top: 20vh;
+    }
+
+  </style>
+
 </head>
 
-<body class="dark-theme">
 
-  <div class="container" >
 
-    <div class="card"  >
 
-      <div class="card-body" >
+<body>
 
-        <h1>Passenger Details</h1>
+  <div class="container">
 
-        <div>
+    <div class="card">
 
-          <div class="form-group" *ngFor="let passenger of passengers; let i = index">
+      <h1>Passenger Details</h1>
 
-            <p style="font-weight: bold;color: red;">Passenger {{i+1}},Seat Number{{numofseats[i]}}</p>
+      <div class="seats-container">
 
-            <div class="row">
+        <div class="form-group" *ngFor="let passenger of passengers; let i = index">
 
-              <div class="col-md-6">
+          <p style="font-weight: bold; color: #5b4882;">Passenger {{i+1}} , Seat Number{{numofseats[i]}}</p>
 
-                <label for="name{{i}}">Name:</label>
+          <div class="form-row">
 
-                <input type="text"   class="form-control" id="name{{i}}" [(ngModel)]="name[i]" required>
+            <div class="col">
 
-                <div *ngIf="nameErrors[i]" class="error-message">
+              <label for="name{{i}}">Name:</label>
 
-                  {{ nameErrors[i] }}
+              <input type="text" class="form-control" id="name{{i}}" [(ngModel)]="name[i]" required>
+              <div *ngIf="nameErrors[i]" class="error-message" style="color: red;">
 
-                </div>
+                {{ nameErrors[i] }}
 
               </div>
 
-              <div class="col-md-6">
+            </div>
 
-                <label for="age{{i}}">Age:</label>
+            <div class="col">
 
-                <input type="number" class="form-control" id="age{{i}}" [(ngModel)]="age[i]" required>
+              <label for="age{{i}}">Age:</label>
 
-                <div *ngIf="ageErrors[i]" class="error-message">
+              <input type="number" class="form-control" id="age{{i}}" [(ngModel)]="age[i]" required>
+              <div *ngIf="ageErrors[i]" class="error-message" style="color: red;">
 
-                  {{ ageErrors[i] }}
-
-                </div>
-
-              </div>
-
-              <div class="col-md-6">
-
-                <label for="gender{{i}}">Gender:</label>
-
-                <select class="form-control" id="gender{{i}}" [(ngModel)]="gender[i]" required>
-
-                  
-
-                  <option value="male">Male</option>
-
-                  <option value="female">Female</option>
-
-                  <option value="other">Other</option>
-
-                </select>
-
-                <div *ngIf="genderErrors[i]" class="error-message">
-
-                  {{ genderErrors[i] }}
-
-                </div>
-
-              </div>
-
-              <div class="col-md-6">
-
-                <label for="mobile{{i}}">Mobile:</label>
-
-                <input type="text" class="form-control" id="mobile{{i}}" [(ngModel)]="mobileNo[i]" required>
-
-                <div *ngIf="mobileErrors[i]" class="error-message">
-
-                  {{ mobileErrors[i] }}
-
-                </div>
-
-              </div>
-
-              <div class="col-md-6">
-
-                <label for="email{{i}}">Email:</label>
-
-                <input type="email" class="form-control" id="email{{i}}" [(ngModel)]="email[i]" required>
-
-                <div *ngIf="emailErrors[i]" class="error-message">
-
-                  {{ emailErrors[i] }}
-
-                </div>
+                {{ ageErrors[i] }}
 
               </div>
 
             </div>
 
           </div>
-          <br>
-          <button style="margin-left:350px ;" (click)="submitForm()">REVIEW YOUR JOURNEY TICKET</button>
-         <br><br> <button style="margin-left:430px ;" routerLink="/seats">Go Back</button>
 
+          <div class="form-row">
+
+            <div class="col">
+
+              <label for="gender{{i}}">Gender:</label>
+
+              <select class="form-control" id="gender{{i}}" [(ngModel)]="gender[i]" required>
+
+                <option value="male">Male</option>
+
+                <option value="female">Female</option>
+
+                <option value="other">Other</option>
+
+              </select>
+              <div *ngIf="genderErrors[i]" class="error-message" style="color: red;">
+
+                {{ genderErrors[i] }}
+
+              </div>
+
+            </div>
+
+            <div class="col">
+
+              <label for="mobileNo{{i}}">Mobile:</label>
+
+              <input type="text" class="form-control" id="mobileNo{{i}}" [(ngModel)]="mobileNo[i]" required>
+
+              <div *ngIf="mobileErrors[i]" class="error-message"  style="color: red;">
+
+                {{ mobileErrors[i] }}
+
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="email{{i}}">Email:</label>
+
+            <input type="email" class="form-control" id="email{{i}}" [(ngModel)]="email[i]" required>
+
+            <div *ngIf="emailErrors[i]" class="error-message"  style="color: red;">
+
+              {{ emailErrors[i] }}
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="d-flex justify-content-center">
+
+          <button class="btn btn-primary" type="submit" (click)="submitForm()"  >Submit</button>
+          <!-- <br><br> <button style="margin-left:430px ;" routerLink="/seats">Go Back</button> -->
         </div>
 
       </div>
@@ -120,8 +214,12 @@
 
   </div>
 
-
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 
+
+
+
 </html>
+<app-footer></app-footer>

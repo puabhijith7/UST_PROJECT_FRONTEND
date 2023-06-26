@@ -1,0 +1,40 @@
+.contact-footer {
+    background: rgba(103, 74, 52, 0.75);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+  
+      padding: 30px 0;
+      text-align: center;
+    }
+    
+    .contact-footer h4 {
+      margin-bottom: 20px;
+    }
+    
+    .contact-footer p {
+      margin-bottom: 10px;
+    }
+    
+    .contact-footer .social-icons a {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      font-size: 16px;
+      line-height: 30px;
+      margin-right: 5px;
+      border-radius: 50%;
+    }
+    
+    .contact-footer .social-icons a:hover {
+      background-color: #555;
+    }
+    
+    .contact-footer .fa,
+    .contact-footer .fab {
+      margin-right: 5px;
+    }
+    

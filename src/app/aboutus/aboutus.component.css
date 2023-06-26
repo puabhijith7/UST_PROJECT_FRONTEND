@@ -1,0 +1,39 @@
+
+body{
+    background: rgba(219, 188, 188, 0.38);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.6px);
+    -webkit-backdrop-filter: blur(2.6px);
+    border: 1px solid rgba(219, 188, 188, 0.46);
+  
+  }
+  
+  .about-us {
+      padding: 60px 0;
+      
+      background: rgba(219, 188, 188, 0.38);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.6px);
+    -webkit-backdrop-filter: blur(2.6px);
+    border: 1px solid rgba(219, 188, 188, 0.46);
+  
+    }
+    
+    .circular-image {
+      border-radius: 50%;
+    }
+    
+    .about-content h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    
+    .about-content p {
+      margin-bottom: 15px;
+    }
+  .user-image{
+      width: 500px;
+      height:520px;
+  }  

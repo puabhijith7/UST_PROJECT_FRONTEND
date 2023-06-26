@@ -1,3 +1,4 @@
+<app-nav2></app-nav2>
 <!DOCTYPE html>
 
 <html>
@@ -6,53 +7,200 @@
 
   <title>Seat Availability</title>
 
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
   <style>
+
+    /* body {
+
+      background-color: #ffffff;
+
+      color: #fff;
+
+      height: 100vh;
+
+      margin: 0;
+
+    } */
+
+
+
+
+    .dark-theme .container {
+
+      background-color: #ffffff;
+
+      height: 100vh;
+      display:flex;
+      align-items: center;
+
+    }
+
+
+
+
+    .dark-theme h1,
+
+    .dark-theme p {
+
+      color: #fff;
+
+      text-align: center; /* Center align the text */
+
+    }
+   
+
+
+
+    .dark-theme .card {
+
+      /* background-color: rgb(60, 202, 98); */
+
+      max-width: 500px; /* Adjust the width as desired */
+
+      margin: 0 auto; /* Center the card horizontally */
+
+      /* margin-top: 50px; Add some top margin */
+
+      border-radius: 10px; /* Rounded corners */
+
+    }
+
+
+    .card-body{
+      background-image: url(../../assets/bookingpage/Capture1.png);
+      
+      /* background-repeat: no-repeat; */
+      width:950px;
+      height: 350px;
+      align-items: center;
+     margin-left: -200px;
+      
+
+
+    }
+
+    
+    .seats-container{
+      
+      margin-top: 50px;
+      width:750px;
+      height: 230px;
+      margin-left: 120px;
+    }
+
+ 
+
+    .dark-theme .seats-container {
+
+      display: grid;
+
+      grid-template-columns: repeat(10, 1fr);
+
+      grid-gap: 5px;
+
+    }
+
+
+
+
+    .dark-theme .seat {
+
+      width: 30px; /* Reduce the width of the seat */
+
+      height: 30px; /* Reduce the height of the seat */
+
+      margin: 3px; /* Reduce the margin of the seat */
+
+      background-color: #076cf0;
+
+      border-radius: 5px;
+
+      cursor: pointer; /* Add cursor pointer on hover */
+
+    }
+
+
+
+
+    .dark-theme .temporarily-booked {
+
+      background-color: #1d035f;
+      cursor: pointer;
+    }
+
+    .dark-theme .booked {
+
+      background-color: #cc0606;
+
+      cursor: not-allowed;
+
+    }
+   
+
+
+
 
    
 
   </style>
+ 
 
 </head>
 
 <body class="dark-theme" style="margin-top: 0px;">
-  <!-- <button (click)="process()">LOAD</button> -->
 
-  <div >
 
+  
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="card">
 
+     
       <div class="card-body">
 
-        <h1>Seat Availability</h1>
-
-        <p>Select a seat to book for your journey.</p>
-        <!-- style="margin-left: 27px;" -->
+        
+        
 
         <div class="seats-container">
+          
+          
+          <div *ngFor="let seat of seats; let i = index" class="seatimg" >
+            
+            <div class="seat" [ngClass]="{'temporarily-booked': seat ==='temporarily-booked','booked': seat === 'booked'}" (click)="toggleSeatStatus(i)">
+               &nbsp;{{i+1}}
+              <!-- if(i ==20){
+                u
+              } -->
 
-          <div *ngFor="let seat of seats; let i = index" >{{i+1}}
-
-            <div class="seat" [ngClass]="{'temporarily-booked': seat ==='temporarily-booked','booked': seat === 'booked'}" (click)="toggleSeatStatus(i)"></div>
-
-          </div> 
-
+              
+            </div>
+          </div>
         </div>
-        <!-- <img style="margin-left: 158px;"  src="https://www.shutterstock.com/image-vector/smiling-happy-public-transport-driver-600w-1283302042.jpg" width="50px" height="50px"> -->
-
+        
+        
         
 
       </div>
+      
 
     </div>
     <div *ngIf="bookedSeats.length> 0">
-    <button style="margin-left: 50px;" class="btn btn-primary" (click)="set()" routerLink="/passenger">Add {{seatNo}}  Passenger Details</button>
-    </div>
+  <button style="margin-left: 50px;" class="btn btn-primary" (click)="set()" routerLink="/passenger">Add {{seatNo}}  Passenger Details</button>
   </div>
+    <!-- <button style="margin-left: 50px;" class="btn btn-primary" (click)="set()" routerLink="/passenger">Add {{seatNo}}  Passenger Details</button> -->
 
-  
+
+
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 
 </html>
+
+<app-footer></app-footer>
+

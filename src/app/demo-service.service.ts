@@ -3,6 +3,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Seat } from './Seat';
 import { RequestDto } from './RequestDto';
+import { BusDto } from './BusDto';
+import { Schedule } from './Scheulde';
 
 @Injectable({
   providedIn: 'root'
@@ -17,31 +19,62 @@ export class DemoServiceService {
   thault: string='';
   numofseats: Array<number>=[];
   scheduleId: number=0;
+  addbusUrl: string;
+  updateUrl: string;
+  addscheduleUrl: string;
   
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.addbusUrl="http://localhost:8081/api/v1/buses/bus";
+    this.updateUrl="http://localhost:8081/api/v1/buses/bus";
+    this.addscheduleUrl="http://localhost:8082/api/v1/schedules/schedule/post"
+   }
+
+   getDropdownValuesbus(): Observable<string[]> {
+    return this.http.get<string[]>('http://localhost:8081/api/v1/buses/bus');
+  }
+ 
 
   getDropdownValues(): Observable<string[]> {
-    return this.http.get<string[]>('http://localhost:9090/api/v1/buses/routeDetails/all');
+    return this.http.get<string[]>('http://localhost:8081/api/v1/buses/routeDetails/all');
   }
   
   search(date: string, source: string, dest: string): Observable<any> {
-    return this.http.get(`http://localhost:9090/api/v1/schedules/schedule/${date}/${source}/${dest}`);
+    return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/${date}/${source}/${dest}`);
   }
   
   searchbus(date: string, source: string, dest: string): Observable<any> {
-    return this.http.get(`http://localhost:9090/api/v1/schedules/schedule/bus/${date}/${source}/${dest}`);
+    return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/bus/${date}/${source}/${dest}`);
   }
   
   getfare(date: string, source: string, dest: string): Observable<any> {
-    return this.http.get(`http://localhost:9090/api/v1/schedules/schedule/fare/${date}/${source}/${dest}`);
+    return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/fare/${date}/${source}/${dest}`);
   }
   getseats(s: number): Observable<any> {
-    return this.http.get(`http://localhost:9090/api/v1/schedules/seat/${s}`);
+    return this.http.get(`http://localhost:8082/api/v1/schedules/seat/${s}`);
 }
 book(requestDto: RequestDto): Observable<any> {
-    return this.http.post('http://localhost:9090/api/v1/bookings/booking',requestDto)
+    return this.http.post('http://localhost:8083/api/v1/bookings/booking',requestDto)
+}
+addbusok(bus:BusDto):Observable<any>{
+  return this.http.post(this.addbusUrl,bus);
+}
+updateBus(bus: BusDto) {
+  return this.http.put(this.updateUrl,bus);
+}
+addSchedule(schedule: Schedule) {
+  return this.http.post(this.addscheduleUrl,schedule);
+}
+getBus(){
+
+  return this.http.get(this.addbusUrl);
+
+}
+getschedule(){
+
+  return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/get`);
+
 }
 
 }
