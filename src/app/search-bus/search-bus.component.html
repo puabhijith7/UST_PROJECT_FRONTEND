@@ -41,7 +41,7 @@
 
     </div>
 
-    <button class="btn btn-primary search-button"  (click)="search()" (click)="searchbus()"(click)="getfare()">Search</button>
+    <button class="btn btn-primary search-button"  (click)="search()" (click)="searchbus()"(click)="getfare()" >Search</button>
 
  
   </div>
@@ -59,13 +59,13 @@
         <tr>
           <th >Date</th>
           <th >Departure Time</th>
-          <th >Arrival Time</th>
+          <th >Running Time</th>
           <th >Bus RegNo</th>
           <th >Bus Name</th>
           <th >Bus Type</th>
           <th >Total Seats</th>
           <th >Fare</th>
-          <th>Book Now</th>
+          <th >Book Now</th>
           
         </tr>
       </thead>
@@ -73,14 +73,14 @@
         <tr *ngFor="let schedule of schedules; let i = index">
           <td>{{ schedule.date }}</td>
           <td>{{ schedule.departureTime }}</td>
-          <td>{{ schedule.arrivalTime }}</td>
+          <td>{{ fare[i].runningTime }}</td>
           <td>{{ busDto[i].regNo }}</td>
           <td>{{ busDto[i].busName }}</td>
           <td>{{ busDto[i].busType }}</td>
           <td>{{ busDto[i].totalSeats }}</td>
-          <td>{{ fare[i] }}</td>
+          <td>{{ fare[i].fare }}</td>
          
-          <td><button type="submit" (click)="getseats(schedule.scheduleId)"(click)="setfare(fare[i])"(click)="set()" routerLink="/seats">VIEW SEATS</button></td>
+          <td><button type="submit" (click)="getseats(schedule.scheduleId)"(click)="setfare(fare[i].fare)"(click)="set()" routerLink="/seats">VIEW SEATS</button></td>
         </tr>
       </tbody>
     </table>

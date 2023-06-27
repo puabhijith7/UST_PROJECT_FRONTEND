@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { BusDto } from '../BusDto';
 import { DemoServiceService } from '../demo-service.service';
+import { fareRunningtimeDto } from '../fareRunningtimeDto';
 import { Schedule } from '../Scheulde';
 import { Seat } from '../Seat';
 import { SeatsComponent } from '../seats/seats.component';
@@ -28,7 +29,7 @@ export  class SearchBusComponent  {
   schedules: Schedule[]=[];
   busDto: BusDto[]=[];
   dropdownValues: string[]=[];
-  fare:number[]=[];
+  fare:fareRunningtimeDto[]=[];
   fareOfSchedule:number=0
   
 
@@ -92,7 +93,7 @@ export  class SearchBusComponent  {
             this.demosearch.getfare(this.textbox1, this.textbox2, this.textbox3).subscribe(
               (response: any) => {
                 if (Array.isArray(response)) {
-                  this.fare = response as  number[];
+                  this.fare = response as  fareRunningtimeDto[];
                 } else {
                   console.log("Invalid response format");
                 }
@@ -127,7 +128,8 @@ export  class SearchBusComponent  {
                   }
                 );
             
-                  }
+                 }
+       
         set(){
           this.demosearch.fare=this.fareOfSchedule;
           this.demosearch.date=this.textbox1;          

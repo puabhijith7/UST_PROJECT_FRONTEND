@@ -1,15 +1,15 @@
 export class Schedule {
     scheduleId: number =0;
     date: Date ;
-    departureTime: string ='';
-    arrivalTime: string='';
+    departureTime: Date;
+    arrivalTime: Date;
     routeId: number =0;
     busId: number =0;
     constructor(
       scheduleId: number,
       date: Date,
-      departureTime: string,
-      arrivalTime: string,
+      departureTime: Date,
+      arrivalTime: Date,
       routeId: number,
       busId: number
     ) {

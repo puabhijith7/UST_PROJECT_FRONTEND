@@ -11,8 +11,8 @@ import { Schedule } from '../Scheulde';
 export class AddscheduleComponent {
   scheduleId!: number
   date!: Date
-  departureTime!: string
-  arrivalTime!: string
+  departureTime!: Date
+  arrivalTime!: Date
   routeId!: number
   busId!: number
   constructor(private service:DemoServiceService,private router: Router) { }
