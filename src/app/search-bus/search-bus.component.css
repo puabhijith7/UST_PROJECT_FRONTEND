@@ -68,7 +68,8 @@
   
   .container2{
   
-    margin:auto;
+    /* margin:auto; */
+    margin:30px;
   
    
   
@@ -107,12 +108,12 @@
   }
   .tbl{
     /* margin-top: 13vh; */
-    height: 95vh;
+    height: 75vh;
    
     background-image: url("../../assets/image/bus5.png");
     background-size: cover;
     background-position: center; 
-     background-repeat: no-repeat; 
+    background-repeat: no-repeat; 
     object-fit: contain;
   }
   
@@ -152,6 +153,7 @@
     border: none;
   
     font-size: 18px;
+    font-weight: bold;
   
   }
   
@@ -164,9 +166,10 @@
   
     height: 38px;
   
-    font-size: 14px;
-  
+    font-size: 18px;
+    padding: 5px;
     width: 100px;
+    font-weight: 600;
   
   }
   
@@ -200,16 +203,6 @@
   
   
   
-  
-  .table th {
-  
-    text-align: center;
-  
-  }
-  
-  
-  
-  
   .view-seats-button {
   
     width: 100%;
@@ -236,7 +229,7 @@
     .input-group {
   
       width: 100%;
-      object-fit: contain;
+      /* object-fit: contain; */
       
   
     }
@@ -254,47 +247,7 @@
 
 
 
-   
-    
-    
-    .form-group {
-      margin-bottom: 20px;
-    }
-    
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
-    
-    select,
-    input[type="date"] {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-    }
-   
-    
-    button {
-      display: inline-block;
-      padding: 10px 20px;
-      font-size: 16px;
-      font-weight: bold;
-      text-align: center;
-      text-decoration: none;
-      background-color: #602d18;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    
-    /* .table-container {
-      margin-top: 30px;
-      
-    } */
+
     
     table {
       width: 95%;
@@ -305,6 +258,11 @@
       margin-right: 5vb;
     }
     
+    /* .table th {
+  
+      text-align: center;
+    
+    } */
     th, td {
       padding: 10px;
       text-align: left;
@@ -312,7 +270,7 @@
     }
     
     th {
-      background-color: #532c08;
+      background-color: rgb(43, 43, 255);
       color: white;
     }
     

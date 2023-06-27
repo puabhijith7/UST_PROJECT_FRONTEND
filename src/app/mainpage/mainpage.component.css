@@ -160,8 +160,9 @@
     height: 38px;
   
     font-size: 18px;
-  
+    padding: 5px;
     width: 100px;
+    font-weight: 600;
   
   }
   

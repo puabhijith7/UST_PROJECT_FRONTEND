@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Seat } from './Seat';
-import { RequestDto } from './RequestDto';
+import { PassengerDto, RequestDto } from './RequestDto';
 import { BusDto } from './BusDto';
 import { Schedule } from './Scheulde';
 
@@ -22,6 +22,8 @@ export class DemoServiceService {
   addbusUrl: string;
   updateUrl: string;
   addscheduleUrl: string;
+  busdto: BusDto[]=[];
+  passengerdto: PassengerDto[] = [];
   
 
 

@@ -101,8 +101,12 @@ export class PassengerComponent {
 
        this.passengerDto.push(passengerDto);
        console.log(this.passengerDto)
-
+       
     }
+    
+    this.demosearch.passengerdto=this.passengerDto
+    this.router.navigate(['/ticket'])
+     
 
     // const requestDto=new RequestDto(this.fhault,this.thault,this.demosearch.scheduleId,2,this.numofseats.length,this.fare,this.date,this.numofseats,this.passengerDto)
 
