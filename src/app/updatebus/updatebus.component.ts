@@ -10,7 +10,7 @@ import { DemoServiceService } from '../demo-service.service';
 })
 export class UpdatebusComponent {
   busId!:number;
-	busNo!:number;
+	
 	regNo:string='';
 	engineNo:string='';
 	busType:string='';
@@ -32,7 +32,7 @@ export class UpdatebusComponent {
 			if(this.busId==this.bus[i].busId)
 			{
 				this.busName=this.bus[i].busName
-				this.busNo=this.bus[i].busNo
+				
 				this.busType=this.bus[i].busType
 				this.regNo=this.bus[i].regNo
 				this.totalSeats=this.bus[i].totalSeats
@@ -63,7 +63,7 @@ export class UpdatebusComponent {
       }
     );}
 updatebus(){
-  const bus = new BusDto(this.busId,this.busNo,this.regNo,this.engineNo,this.busType,this.busName,this.totalSeats)
+  const bus = new BusDto(this.busId,this.regNo,this.engineNo,this.busType,this.busName,this.totalSeats)
    
     this.service.updateBus(bus).subscribe(
       response => {

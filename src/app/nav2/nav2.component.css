@@ -29,7 +29,7 @@
 
 
 
- height: 70px;
+ height: 60px;
 
   object-fit: contain;
 
@@ -217,4 +217,8 @@
 
 
 
+}
+
+.container-fluid{
+  height: 7vh;
 }

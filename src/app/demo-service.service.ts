@@ -24,9 +24,7 @@ export class DemoServiceService {
   addscheduleUrl: string;
   busdto: BusDto[]=[];
   passengerdto: PassengerDto[] = [];
-  
-
-
+ 
   constructor(private http: HttpClient) {
     this.addbusUrl="http://localhost:8081/api/v1/buses/bus";
     this.updateUrl="http://localhost:8081/api/v1/buses/bus";
@@ -62,18 +60,18 @@ book(requestDto: RequestDto): Observable<any> {
 addbusok(bus:BusDto):Observable<any>{
   return this.http.post(this.addbusUrl,bus);
 }
-updateBus(bus: BusDto) {
+updateBus(bus: BusDto):Observable<any> {
   return this.http.put(this.updateUrl,bus);
 }
-addSchedule(schedule: Schedule) {
+addSchedule(schedule: Schedule):Observable<any> {
   return this.http.post(this.addscheduleUrl,schedule);
 }
-getBus(){
+getBus():Observable<any>{
 
   return this.http.get(this.addbusUrl);
 
 }
-getschedule(){
+getschedule():Observable<any>{
 
   return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/get`);
 

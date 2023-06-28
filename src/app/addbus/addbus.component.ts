@@ -20,7 +20,7 @@ export class AddbusComponent {
   
   constructor(private service:DemoServiceService,private router: Router) { }
 addbus(){
-  const bus = new BusDto(this.busId,this.busNo,this.regNo,this.engineNo,this.busType,this.busName,this.totalSeats)
+  const bus = new BusDto(this.busId,this.regNo,this.engineNo,this.busType,this.busName,this.totalSeats)
    
     this.service.addbusok(bus).subscribe(
       response => {
