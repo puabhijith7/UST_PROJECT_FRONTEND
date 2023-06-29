@@ -98,7 +98,7 @@ h1 {
 }
 .tbl{
   /* margin-top: 13vh; */
-  height: 90vh;
+  height: 70vh;
  
   background-image: url("../../assets/image/bus5.png");
   background-size: cover;
@@ -276,7 +276,7 @@ h1 {
     font-weight: bold;
     text-align: center;
     text-decoration: none;
-    background-color: #602d18;
+    background-color: #585655;
     color: white;
     border: none;
     border-radius: 4px;
@@ -305,7 +305,7 @@ h1 {
   }
   
   th {
-    background-color: #532c08;
+    background-color: #585655;
     color: white;
   }
   
