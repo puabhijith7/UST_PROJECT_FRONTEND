@@ -31,9 +31,9 @@ export class DemoServiceService {
   token!:string
  
   constructor(private http: HttpClient) {
-    this.addbusUrl="http://localhost:8081/api/v1/buses/bus";
-    this.updateUrl="http://localhost:8081/api/v1/buses/bus";
-    this.addscheduleUrl="http://localhost:8082/api/v1/schedules/schedule/post"
+    this.addbusUrl="http://localhost:9090/api/v1/buses/bus";
+    this.updateUrl="http://localhost:9090/api/v1/buses/bus";
+    this.addscheduleUrl="http://localhost:9090/api/v1/schedules/schedule/post"
    }
 
    getDropdownValuesbus(): Observable<string[]> {
@@ -46,21 +46,21 @@ export class DemoServiceService {
   }
   
   search(date: string, source: string, dest: string): Observable<any> {
-    return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/${date}/${source}/${dest}`);
+    return this.http.get(`http://localhost:9090/api/v1/schedules/schedule/${date}/${source}/${dest}`);
   }
   
   searchbus(date: string, source: string, dest: string): Observable<any> {
-    return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/bus/${date}/${source}/${dest}`);
+    return this.http.get(`http://localhost:9090/api/v1/schedules/schedule/bus/${date}/${source}/${dest}`);
   }
   
   getfare(date: string, source: string, dest: string): Observable<any> {
-    return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/fare/${date}/${source}/${dest}`);
+    return this.http.get(`http://localhost:9090/api/v1/schedules/schedule/fare/${date}/${source}/${dest}`);
   }
   getseats(s: number): Observable<any> {
-    return this.http.get(`http://localhost:8082/api/v1/schedules/seat/${s}`);
+    return this.http.get(`http://localhost:9090/api/v1/schedules/seat/${s}`);
 }
 book(requestDto: RequestDto): Observable<any> {
-    return this.http.post('http://localhost:8083/api/v1/bookings/booking',requestDto)
+    return this.http.post('http://localhost:9090/api/v1/bookings/booking',requestDto)
 }
 addbusok(bus:BusDto):Observable<any>{
   return this.http.post(this.addbusUrl,bus);
@@ -78,7 +78,7 @@ getBus():Observable<any>{
 }
 getschedule():Observable<any>{
 
-  return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/get`);
+  return this.http.get(`http://localhost:9090/api/v1/schedules/schedule/get`);
 
 }
 signupok(user: User):Observable<any> {

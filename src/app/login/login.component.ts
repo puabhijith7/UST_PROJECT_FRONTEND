@@ -15,10 +15,31 @@ export class LoginComponent {
   password:string=''; 
   user!:Userlogin
   errormsg!: string;
+  nameError!: string;
+  passError!: string;
 constructor(private service:DemoServiceService,private router: Router,private s:AuthService) { }
   login()
   {
     this.errormsg=''
+    this.nameError=''
+    this.passError=''
+
+    if (!this.username) {
+
+      this.nameError = 'Please enter a name';
+
+      return;
+
+    }
+    if (!this.password) {
+
+      this.passError = 'Please enter a password';
+
+      return;
+
+    }
+
+
     const user = new Userlogin(this.username,this.password);
     console.log(user)
     this.service.loginok(user) .subscribe(

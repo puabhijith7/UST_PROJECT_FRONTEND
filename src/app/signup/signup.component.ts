@@ -16,12 +16,41 @@ export class SignupComponent {
   str!:string
    user1!:User
   errormsg!: string;
+  emailError!: string;
+  passError!: string;
+  nameError!: string;
   
     constructor(private service:DemoServiceService,private router: Router) { 
       this.errormsg=''
     }
     signup(){
       this.errormsg=''
+      this.nameError=''
+      this.emailError=''
+      this.passError=''
+
+      if (!this.name) {
+
+        this.nameError = 'Please enter a name';
+  
+        return;
+  
+      }
+      if (!this.email || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
+
+        this.emailError = 'Please enter a valid email address';
+
+        return;
+
+      }
+      if (!this.password) {
+  
+        this.passError = 'Please enter a password';
+  
+        return;
+  
+      }
+     
       const user = new User(this.name,this.email,this.password);
       console.log(user)
       this.service.signupok(user) .subscribe(

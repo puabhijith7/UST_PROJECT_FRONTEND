@@ -7,7 +7,7 @@ import { DemoServiceService } from './demo-service.service';
 export class JwtInterceptor implements HttpInterceptor {
     constructor(private service:DemoServiceService){}
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-     const token = localStorage.getItem('jwtToken'); // Assuming you store the token in localStorage
+     const token = localStorage.getItem('jwtToken'); 
   //  const token=this.service.token
     console.log("hi")
     if (token) {
