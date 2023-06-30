@@ -1,27 +1,40 @@
+<!-- <div class="container">
+    <h1>Welcome, Admin!</h1>
+    <div class="button-group">
+      <button routerLink="/addbus">Add Bus</button>
+      <button routerLink="/deletebus">Delete Bus</button>
+      <button routerLink="/dashboard">Dashboard</button>
+      <button routerLink="/updatebus">Updatebus</button>
+    </div>
+  </div> -->
+
+  
 
 
-<app-adminnav></app-adminnav>
-<h1 class="display-5 text-center">Welcome, Admin</h1>
+  <app-adminnav></app-adminnav>
+    
+    
+  <div class="container" >
 
-<div class="container ">
+    <div class="row">
 
-  <div class="row">
+      <div class="col-md-6 offset-md-3">
 
-    <div class="col-md-6 offset-md-3">
+        <div class="text-center">
 
-      <div class="text-center">
+          <h1 class="display-4">Welcome, Admin</h1>
 
-       
+        </div>
 
-      </div>
+        <div class="mt-4 btn-container d-flex justify-content-center">
 
-      <div class="mt-4 btn-container d-flex justify-content-center">
+          <button class="btn btn-primary btn-lg mr-3" routerLink="/addschedule"><i class="fas fa-plus"></i>Add Schedule</button>
 
-        <button class="btn btn-primary btn-lg mr-3 btn-rounded" routerLink="/addschedule">Add</button>
+          <button class="btn btn-success btn-lg mr-3" routerLink="/viewschedule" ><i class="fas fa-calendar-alt"></i>View Schedule</button>
 
-        <button class="btn btn-success btn-lg mr-3 btn-rounded" routerLink="/viewschedule">View</button>
+          <!-- <button class="btn btn-info btn-lg" routerLink="/updatebus"><i class="fas fa-sync"></i>Update Bus</button> -->
 
-       
+        </div>
 
       </div>
 
@@ -29,6 +42,5 @@
 
   </div>
 
-</div>
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  

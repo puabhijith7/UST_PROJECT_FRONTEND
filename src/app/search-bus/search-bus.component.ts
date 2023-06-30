@@ -27,6 +27,7 @@ export  class SearchBusComponent  {
   textbox2: string='';
   textbox3: string='';
   schedules: Schedule[]=[];
+  bus!:BusDto 
   busDto: BusDto[]=[];
   dropdownValues: string[]=[];
   fare:fareRunningtimeDto[]=[];
@@ -42,6 +43,10 @@ export  class SearchBusComponent  {
         console.log('Error fetching dropdown values:', error);
       }
     );}
+    setbus(b:BusDto)
+    {
+      this.bus=b
+    }
 
     setfare(f:number)
     {
@@ -74,7 +79,7 @@ export  class SearchBusComponent  {
           (response: any) => {
             if (Array.isArray(response)) {
               this.busDto = response as BusDto[];
-              this.demosearch.busdto=this.busDto
+              // this.demosearch.busdto=this.busDto
             } else {
               console.log("Invalid response format");
             }
@@ -135,7 +140,8 @@ export  class SearchBusComponent  {
           this.demosearch.date=this.textbox1;          
           this.demosearch.fhault=this.textbox2;
           this.demosearch.thault=this.textbox3;
-         
+          this.demosearch.busdto=this.busDto;
+          this.demosearch.bus=this.bus;
         }
  
     }

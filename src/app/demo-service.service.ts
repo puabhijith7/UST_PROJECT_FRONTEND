@@ -5,11 +5,14 @@ import { Seat } from './Seat';
 import { PassengerDto, RequestDto } from './RequestDto';
 import { BusDto } from './BusDto';
 import { Schedule } from './Scheulde';
+import { User, Userlogin } from './User';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DemoServiceService {
+ 
+  
  
   s:Seat[]=[];
   fare: number=0;
@@ -24,6 +27,8 @@ export class DemoServiceService {
   addscheduleUrl: string;
   busdto: BusDto[]=[];
   passengerdto: PassengerDto[] = [];
+  bus!: BusDto;
+  token!:string
  
   constructor(private http: HttpClient) {
     this.addbusUrl="http://localhost:8081/api/v1/buses/bus";
@@ -32,12 +37,12 @@ export class DemoServiceService {
    }
 
    getDropdownValuesbus(): Observable<string[]> {
-    return this.http.get<string[]>('http://localhost:8081/api/v1/buses/bus');
+    return this.http.get<string[]>('http://localhost:9090/api/v1/buses/bus');
   }
  
 
   getDropdownValues(): Observable<string[]> {
-    return this.http.get<string[]>('http://localhost:8081/api/v1/buses/routeDetails/all');
+    return this.http.get<string[]>('http://localhost:9090/api/v1/buses/routeDetails/all');
   }
   
   search(date: string, source: string, dest: string): Observable<any> {
@@ -75,6 +80,13 @@ getschedule():Observable<any>{
 
   return this.http.get(`http://localhost:8082/api/v1/schedules/schedule/get`);
 
+}
+signupok(user: User):Observable<any> {
+  console.log(user)
+  return this.http.post('http://localhost:9090/auth/register',user);
+}
+loginok(user: any):Observable<any>  {
+  return this.http.post('http://localhost:9090/auth/token',user,{ responseType : 'text' });
 }
 
 }

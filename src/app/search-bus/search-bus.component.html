@@ -80,7 +80,7 @@
           <td>{{ busDto[i].totalSeats }}</td>
           <td>{{ fare[i].fare }}</td>
          
-          <td><button type="submit" (click)="getseats(schedule.scheduleId)"(click)="setfare(fare[i].fare)"(click)="set()" routerLink="/seats">VIEW SEATS</button></td>
+          <td><button type="submit" (click)="getseats(schedule.scheduleId)"(click)="setfare(fare[i].fare)"(click)="setbus(busDto[i])"(click)="set()" routerLink="/seats">VIEW SEATS</button></td>
         </tr>
       </tbody>
     </table>

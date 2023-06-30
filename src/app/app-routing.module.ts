@@ -6,9 +6,11 @@ import { AdminbusComponent } from './adminbus/adminbus.component';
 import { AdminpageComponent } from './adminpage/adminpage.component';
 import { AdminscheduleComponent } from './adminschedule/adminschedule.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
+import { LoginComponent } from './login/login.component';
 import { PassengerComponent } from './passenger/passenger.component';
 import { SearchBusComponent } from './search-bus/search-bus.component';
 import { SeatsComponent } from './seats/seats.component';
+import { SignupComponent } from './signup/signup.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { UpdatebusComponent } from './updatebus/updatebus.component';
 import { ViewbusComponent } from './viewbus/viewbus.component';
@@ -27,7 +29,9 @@ const routes: Routes = [
   {path:'updatebus',component:UpdatebusComponent},
   {path:'addschedule',component:AddscheduleComponent},
   {path:'viewschedule',component:ViewscheduleComponent},
-  {path:'ticket',component:TicketComponent}
+  {path:'ticket',component:TicketComponent},
+  {path:'signup',component:SignupComponent},
+  {path:'login',component:LoginComponent}
 ];
 
 @NgModule({

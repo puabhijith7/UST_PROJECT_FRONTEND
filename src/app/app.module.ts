@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -28,6 +28,9 @@ import { AdminscheduleComponent } from './adminschedule/adminschedule.component'
 import { AddscheduleComponent } from './addschedule/addschedule.component';
 import { ViewscheduleComponent } from './viewschedule/viewschedule.component';
 import { AdminnavComponent } from './adminnav/adminnav.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { JwtInterceptor } from './JwtInterceptor';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,9 @@ import { AdminnavComponent } from './adminnav/adminnav.component';
     AdminscheduleComponent,
     AddscheduleComponent,
     ViewscheduleComponent,
-    AdminnavComponent
+    AdminnavComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +66,12 @@ import { AdminnavComponent } from './adminnav/adminnav.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [DemoServiceService],
+  providers: [DemoServiceService,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: JwtInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent,SearchBusComponent,SeatsComponent]
 })
 export class AppModule { }

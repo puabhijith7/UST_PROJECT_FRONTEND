@@ -14,8 +14,8 @@ export class TicketComponent {
   numofseats: Array<number>=this.service.numofseats;
   source=this.service.fhault
   destination=this.service.thault
-  bustype=this.service.busdto[0].busType
-  busname=this.service.busdto[0].busName
+  bustype=this.service.bus.busType
+  busname=this.service.bus.busName
   date=this.service.date
   passengerDto=this.service.passengerdto
   fare=this.service.fare*(this.numofseats.length)

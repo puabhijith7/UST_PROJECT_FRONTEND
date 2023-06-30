@@ -1,0 +1,80 @@
+<body>
+
+    <div class="container">
+  
+      <div class="image-container">
+  
+        <img src="https://cdn.dribbble.com/users/1187836/screenshots/7049426/media/7b3ab8c1fff5cdb8fa3e2fcc53c18dfb.gif" alt="#" class="side-image" />
+  
+      </div>
+  
+  
+  
+  
+      <div class="signup-container">
+  
+        
+  
+          <div class="col-lg-12 col-md-8">
+  
+            <div class="form-group">
+  
+              <label for="name">Name</label>
+  
+              <input type="text" class="form-control" id="name" placeholder="Name" required [(ngModel)]="name">
+  
+            </div>
+  
+            <div class="form-group">
+  
+              <label for="email">Email</label>
+  
+              <input type="email" class="form-control" required id="email"placeholder="Email" required [(ngModel)]="email">
+  
+            </div>
+  
+            <!-- <div class="form-group">
+  
+              <label for="phone">Phone No</label>
+  
+              <input type="tel" class="form-control" required id="phone"  placeholder="Phone" required [(ngModel)]="mobile">
+  
+            </div> -->
+  
+            <div class="form-group">
+  
+              <label for="password">Password</label>
+  
+              <input type="password" class="form-control" id="password" placeholder="Password" required [(ngModel)]="password">
+  
+            </div>
+  
+            <!-- <div class="form-group">
+  
+              <label for="confirmPassword">Confirm Password</label>
+  
+              <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password">
+  
+            </div> -->
+  
+            <div class="center-button">
+  
+              <button type="submit" class="btn btn-primary " (click)="signup()">Signup</button>
+  
+            </div>
+            <div>{{errormsg}}</div>
+  
+          </div>
+  
+       
+  
+      </div>
+  
+    </div>
+  <br>
+  <br>
+  <div>
+    <br>
+  <br>
+  </div>
+  </body>
